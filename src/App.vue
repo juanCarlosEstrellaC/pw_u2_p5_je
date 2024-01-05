@@ -1,8 +1,11 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <Contador titulo="Contador 1"></Contador>
-  <Contador titulo="Contador 2"/><!-- Usando la forma cortita -->
-  <Contador titulo="Contador 3"/><!-- Usando la forma cortita -->
+  <div>
+    <h2>APP</h2>
+    <img alt="Vue logo" src="./assets/logo.png" />
+    <Contador titulo="Contador 1" valor="10"></Contador>
+    <Contador titulo="Contador 2" :valor="calcularValor()" />
+    <Contador titulo="Contador 3" />
+  </div>
 </template>
 
 <script>
@@ -12,6 +15,11 @@ export default {
   name: "App",
   components: {
     Contador,
+  },
+  methods: {
+    calcularValor() {
+      return 5 + 5 * 10;
+    },
   },
 };
 </script>
