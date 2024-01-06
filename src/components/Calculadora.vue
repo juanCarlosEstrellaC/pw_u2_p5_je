@@ -1,0 +1,125 @@
+<template>
+  <div>
+    <section>
+      <div class="container">
+        <div class="calculadora">
+          <div class="display">
+            <label id="idPantalla"></label>
+          </div>
+          <button @click="resetear()" class="col-2">C</button>
+          <button @click="borrar()">&#8592;</button>
+          <button @click="digito('/')">/</button>
+          <button @click="digito(7)">7</button>
+          <button @click="digito(8)">8</button>
+          <button @click="digito(9)">9</button>
+          <button @click="digito('*')">X</button>
+          <button @click="digito(4)">4</button>
+          <button @click="digito(5)">5</button>
+          <button @click="digito(6)">6</button>
+          <button @click="digito('-')">-</button>
+          <button @click="digito(1)">1</button>
+          <button @click="digito(2)">2</button>
+          <button @click="digito(3)">3</button>
+          <button @click="digito('+')">+</button>
+          <button @click="digito(0)" class="col-2">0</button>
+          <button @click="digito('.')">.</button>
+          <button @click="igual()">=</button>
+        </div>
+      </div>
+    </section>
+  </div>
+</template>
+  
+  <script>
+export default {
+  data() {
+    return {
+      cadenaOp: "",
+      res: 0,
+    };
+  },
+  methods: {
+    digito(dig) {
+      this.cadenaOp = this.cadenaOp + dig;
+      document.getElementById("idPantalla").innerText = this.cadenaOp;
+    },
+    igual() {
+      this.res = eval(this.cadenaOp);
+      console.log(this.res);
+      document.getElementById("idPantalla").innerText = this.res;
+      return this.res;
+    },
+    resetear() {
+      this.cadenaOp = "";
+      this.res = 0;
+      document.getElementById("idPantalla").innerText = this.cadenaOp;
+    },
+    borrar() {
+      this.cadenaOp = this.cadenaOp.slice(0, -1);
+      document.getElementById("idPantalla").innerText = this.cadenaOp;
+    },
+  },
+};
+</script>
+  
+<style scoped>
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.calculadora {
+  display: grid;
+  /*     grid-template-columns: 75px 75px 75px 75px;*/
+  grid-template-columns: repeat(4, 75px);
+  grid-template-rows: 150px repeat(5, 75px);
+  background-color: #00916e;
+  padding: 15px;
+  border-radius: 32px;
+  box-shadow: 15px 10px 5px 5px #00000033;
+}
+
+.display {
+  grid-column: span 4;
+  padding: 15px;
+  margin: 10px 10px 20px 10px;
+  background-color: #363636;
+  border-radius: 36px;
+  text-align: right;
+  box-shadow: 0px 0px 0px 10px #00000033;
+}
+
+button {
+  cursor: pointer;
+  margin: 5px;
+  padding: 0;
+  border-radius: 32px;
+  border: none;
+  background-color: #00916e;
+  box-shadow: 5px 5px 10px 2px #00000040;
+  font-size: 25px;
+}
+
+button:hover {
+  color: aqua;
+}
+
+button:active {
+  background-color: #006f54;
+}
+
+.col-2 {
+  grid-column: span 2;
+}
+
+body {
+  background-color: #224870;
+}
+
+* {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  color: white;
+}
+</style>
