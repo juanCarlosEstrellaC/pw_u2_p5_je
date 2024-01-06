@@ -1,8 +1,8 @@
 <template>
   <div>
-    <h2>Calculadora</h2>
-    <Calculadora />
-
+    <Pregunta></Pregunta>
+<!--     <h2>Calculadora</h2>
+    <Calculadora />  -->
 <!--     <img alt="Vue logo" src="./assets/logo.png" />
     <Contador titulo="Contador 1" valor="10"></Contador>
     <Contador titulo="Contador 2" :valor="calcularValor()" />
@@ -13,12 +13,14 @@
 <script>
 import Contador from "./components/Contador.vue";
 import Calculadora from "./components/Calculadora.vue";
+import Pregunta from "./components/Pregunta.vue"
 
 export default {
   name: "App",
   components: {
     Contador,
     Calculadora,
+    Pregunta,
   },
   methods: {
     calcularValor() {
