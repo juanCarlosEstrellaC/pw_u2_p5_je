@@ -1,6 +1,10 @@
 <template>
   <div>
-    <Pregunta></Pregunta>
+<!--     <Pokemon/>
+ -->
+     <Pregunta></Pregunta>
+
+
 <!--     <h2>Calculadora</h2>
     <Calculadora />  -->
 <!--     <img alt="Vue logo" src="./assets/logo.png" />
@@ -14,6 +18,7 @@
 import Contador from "./components/Contador.vue";
 import Calculadora from "./components/Calculadora.vue";
 import Pregunta from "./components/Pregunta.vue"
+import Pokemon from "./components/Pokemon.vue";
 
 export default {
   name: "App",
@@ -21,6 +26,7 @@ export default {
     Contador,
     Calculadora,
     Pregunta,
+    Pokemon,
   },
   methods: {
     calcularValor() {
