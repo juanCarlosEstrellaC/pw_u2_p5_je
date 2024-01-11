@@ -27,11 +27,6 @@ export default {
     };
   },
   methods: {
-    construirURLAPI(id) {
-      this.url = "https://pokeapi.co/api/v2/pokemon/" + this.id;
-      console.log(this.url);
-      return url;
-    },
     ingreso(event) {
       console.log(event);
       if (event.charCode === 13) {

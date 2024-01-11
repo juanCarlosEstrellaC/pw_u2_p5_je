@@ -1,9 +1,9 @@
 <template>
   <div>
-<!--     <Pokemon/>
- -->
-     <Pregunta></Pregunta>
+    <Pokemon/>
 
+<!--      <Pregunta></Pregunta>
+ -->
 
 <!--     <h2>Calculadora</h2>
     <Calculadora />  -->
