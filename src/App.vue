@@ -1,13 +1,13 @@
 <template>
   <div>
-    <Pokemon/>
+   
+    <PokemonPage />
 
-<!--      <Pregunta></Pregunta>
- -->
-
-<!--     <h2>Calculadora</h2>
+    <!--     <Pokemon/>-->
+    <!--      <Pregunta></Pregunta>-->
+    <!--     <h2>Calculadora</h2>
     <Calculadora />  -->
-<!--     <img alt="Vue logo" src="./assets/logo.png" />
+    <!--     <img alt="Vue logo" src="./assets/logo.png" />
     <Contador titulo="Contador 1" valor="10"></Contador>
     <Contador titulo="Contador 2" :valor="calcularValor()" />
     <Contador titulo="Contador 3" /> -->
@@ -17,8 +17,9 @@
 <script>
 import Contador from "./components/Contador.vue";
 import Calculadora from "./components/Calculadora.vue";
-import Pregunta from "./components/Pregunta.vue"
+import Pregunta from "./components/Pregunta.vue";
 import Pokemon from "./components/Pokemon.vue";
+import PokemonPage from "./pages/PokemonPage.vue";
 
 export default {
   name: "App",
@@ -27,6 +28,7 @@ export default {
     Calculadora,
     Pregunta,
     Pokemon,
+    PokemonPage,
   },
   methods: {
     calcularValor() {
