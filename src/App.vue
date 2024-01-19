@@ -1,5 +1,5 @@
 <template>
-  <div >
+  <div class="cont">
     <div v-if="mostrarJuego" class="container">
       <h1>Casino Pokemon</h1>
       <h2>Puntaje:{{ puntaje }}</h2>
@@ -149,15 +149,17 @@ export default {
 </script>
 
 <style>
+
+.cont{
+  border: 2px solid black; 
+}
 .container {
   display: grid;
   grid-template-columns: repeat(4, 200px);
   justify-content: center;
   align-items: center;
-  border: 2px solid black; 
   padding: 10px; 
   width: 1300px;
-
 }
 
 h1 {
@@ -166,11 +168,6 @@ h1 {
 
 h2 {
   grid-column: span 2;
-}
-
-.imagen {
-  border: 1px solid black; 
-  margin: 5px; 
 }
 
 .button-container {

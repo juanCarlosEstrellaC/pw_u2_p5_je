@@ -30,8 +30,11 @@ export default {
 }
 
 img {
-  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 170px;
   height: 300px;
-  background-color: rgb(255, 255, 255);
 }
 </style>
