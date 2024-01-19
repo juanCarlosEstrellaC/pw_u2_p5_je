@@ -26,8 +26,10 @@ export default {
       console.log(arregloPokemons);
     }
   },
+  
 };
 </script>
 
 <style>
+
 </style>
