@@ -1,7 +1,7 @@
 <template>
   <h1 v-if="!pokemonGanador">Espere por favor, estamos cargando el juego...</h1>
   <div v-else class="container">
-    <div class="cabecera">
+    <div class="cabecera" v-if="!gano">
       <label>Intentos : {{ intentos }}</label>
       <label>Puntaje : {{ puntaje }}</label>
     </div>
@@ -17,7 +17,10 @@
   </div>
 
   <div v-if="gano" class="mensaje">
-    <h1>Gano!</h1>
+    <h1>Ganó!</h1>
+    <h5>El pokemon es : {{ pokemonGanador.nombre }}</h5>
+    <h5>Intentos : {{ intentos }}</h5>
+    <h5>Puntaje : {{ puntaje }}</h5>
     <button @click="reiniciarJuego">Reiniciar Juego</button>
   </div>
   <div v-if="perdio" class="mensaje">
@@ -83,7 +86,7 @@ export default {
           this.puntaje += 25;
         }
       }
-      
+
       if (this.intentos == 3 && this.mostrarPokemon == false)
           this.perdio = true;
           console.log("Perdio");
@@ -166,5 +169,8 @@ export default {
   background-color: burlywood;
   border: solid 1px black;
   padding-bottom: 20px;
+}
+.mensaje > * {
+  margin: 10px 0;  
 }
 </style>
