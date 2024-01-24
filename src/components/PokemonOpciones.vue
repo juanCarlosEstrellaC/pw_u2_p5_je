@@ -2,9 +2,10 @@
   <div class="options-container">
     <ul>
       <li
-        v-for="pokemon in pokemons"
+        v-for="pokemon in arregloPokemon"
         :key="pokemon.id"
-        @click="$emit('selecciono', { id: pokemon.id, name: 'pepito' })"
+        @click="seleccionarPokemon(pokemon)"
+        :class="{ selected: pokemonSeleccionado === pokemon.id }"
       >
         {{ pokemon.nombre }}
       </li>
@@ -15,12 +16,23 @@
 <script>
 export default {
   props: {
-    pokemons: {
+    arregloPokemon: {
       type: Array,
       required: true,
     },
   },
-};
+  data() {
+    return {
+      pokemonSeleccionado: null,
+    };
+  },
+  methods: {
+    seleccionarPokemon(pokemon) {
+      this.$emit('seleccionoNombrePk', pokemon.id);
+      this.pokemonSeleccionado = pokemon.id;
+    }
+  },
+}
 </script>
 
 <style scoped>
@@ -42,7 +54,7 @@ ul {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 0;   /* Con esto funciono. */ 
+  padding: 0; /* Con esto funciono. */
 }
 
 li {
@@ -59,5 +71,10 @@ li {
 
 li:hover {
   background-color: rgba(0, 0, 0, 0.1);
+}
+
+li.selected {
+  cursor: not-allowed;
+  opacity: 0.6;
 }
 </style>

@@ -1,3 +1,6 @@
+// Toda la lógica de este archivo sirve para obtener una lista de 4 objetos pokemons 
+// aleatorios que contengan el id y el nombre de cada uno de ellos.
+
 function obtenerNumeroAleatorio(inicio, fin) {
     return Math.floor(Math.random() * fin) + inicio;
 }
@@ -6,13 +9,13 @@ const obtenerNumeroAleatorioLambda = (inicio, fin) => {
     return Math.floor(Math.random() * fin) + inicio;
 }
 
-const obtenerIdPokemons = () => {
+const obtenerIdAleatorioPokemons = () => {
     const idPokemon1 = obtenerNumeroAleatorio(1, 600);
     const idPokemon2 = obtenerNumeroAleatorio(1, 600);
     const idPokemon3 = obtenerNumeroAleatorio(1, 600);
     const idPokemon4 = obtenerNumeroAleatorio(1, 600);
     const vectorIdPokemon = [idPokemon1, idPokemon2, idPokemon3, idPokemon4];
-    console.log(vectorIdPokemon);
+    //console.log(vectorIdPokemon);
     return vectorIdPokemon;
 }
 
@@ -25,7 +28,7 @@ async function consultarNombre(id) {
     return data.name;
 }
 
-const obtenerNombresPokemons = async ([idPokemon1, idPokemon2, idPokemon3, idPokemon4]) => {
+const obtenerVectorPokemons = async ([idPokemon1, idPokemon2, idPokemon3, idPokemon4]) => {
     const nombre1 = await consultarNombre(idPokemon1);
     const nombre2 = await consultarNombre(idPokemon2);
     const nombre3 = await consultarNombre(idPokemon3);
@@ -50,13 +53,13 @@ const obtenerNombresPokemons = async ([idPokemon1, idPokemon2, idPokemon3, idPok
     }
 
     const vectorPokemon = [pk1, pk2, pk3, pk4];
-    console.log(vectorPokemon);
+    //console.log(vectorPokemon);
     return vectorPokemon;
 }
 
 const obtenerPokemons = async () => {
-    const vectorIdPokemon = obtenerIdPokemons();
-    return await obtenerNombresPokemons(vectorIdPokemon);
+    const vectorIdPokemon = obtenerIdAleatorioPokemons();
+    return await obtenerVectorPokemons(vectorIdPokemon);
 }
 
 //Funcion de fachada. Es la que se exporta para ser usada en otros archivos.
