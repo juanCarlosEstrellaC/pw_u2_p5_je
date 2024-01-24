@@ -1,8 +1,8 @@
 <template>
   <h1 v-if="!pokemonGanador">Espere por favor, estamos cargando el juego...</h1>
-  <div v-else>
+  <div v-else class="container">
     <h1>Adivina el Pokemon</h1>
-    <PokemonImagen :pokemonId="pokemonGanador.id" :showPokemon="mostrarPokemon" />
+    <PokemonImagen :pokemonId="pokemonGanador.id" :showPokemon="mostrarPokemon"/>
     <PokemonOpciones @selecciono="revisarClick($event)" :pokemons="pokemonsArr" />
   </div>
 </template>
@@ -76,5 +76,15 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 300px;
+  margin: 0 auto;
+  background-color: aquamarine;
+  border: solid 1px black;
+}
 </style>

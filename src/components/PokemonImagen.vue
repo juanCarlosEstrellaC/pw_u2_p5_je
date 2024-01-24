@@ -1,7 +1,7 @@
 <template>
   <div class="pokemon-container">
     <img :src="imagenFuente" alt="No se puede visualizar" v-if="showPokemon" />
-    <img :src="imagenFuente" alt="No se puede visualizar" class="ocultar" v-if="!showPokemon"/>
+    <img :src="imagenFuente" alt="No se puede visualizar" v-if="!showPokemon" class="ocultar"/>
   </div>
 </template>
 
@@ -12,17 +12,16 @@ export default {
       type: Number,
       required: true,
     },
-    showPokemon:{
-        type:Boolean,
-        required:true,
-        default:false,
-    }
+    showPokemon: {
+      type: Boolean,
+      required: true,
+      default: false,
+    },
   },
   computed: {
     imagenFuente() {
       return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${this.pokemonId}.svg`;
-
-      /*       return 
+      /* return 
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/" +
         this.pokemonId +
         ".svg" */
@@ -37,9 +36,8 @@ export default {
 }
 
 img {
+  position: relative;
   height: 200px;
-  position: absolute;
-  right: 42%;
 }
 
 .pokemon-container {
